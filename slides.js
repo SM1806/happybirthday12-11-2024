@@ -122,7 +122,7 @@ function onWndLoad() {
     e.preventDefault();
 
     // Check if we're on the last slide
-    if (Math.abs(transX) >= curSlide.offsetWidth - 30) {
+    if (Math.abs(transX) >= curSlide.offsetWidth * 0.75) {
       document.removeEventListener('mousemove', slideMouseMove, false);
       document.removeEventListener('touchmove', slideMouseMove, false);
 
