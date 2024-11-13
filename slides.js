@@ -2,7 +2,7 @@ window.addEventListener('load', onWndLoad, false);
 
 function onWndLoad() {
   var slider = document.querySelector('.slider');
-  var sliders = Array.from(slider.children); 
+  var sliders = Array.from(slider.children);
   var initX = null;
   var transX = 0;
   var rotZ = 0;
@@ -58,6 +58,15 @@ function onWndLoad() {
       z -= Z_DIS;
       y += Y_DIS;
     }
+    // Add "Swipe the card" text under the first slide
+    if (sliders.length > 0) {
+      const swipeTextFirst = document.createElement('div');
+      swipeTextFirst.classList.add('swipe-text', 'swipe-first');
+      swipeTextFirst.innerText = 'Swipe the card';
+      sliders[sliders.length - 1].appendChild(swipeTextFirst);
+    }
+
+
 
     attachEvents(sliders[sliders.length - 1]);
     playAudioForSlide(0);
@@ -121,6 +130,8 @@ function onWndLoad() {
     initX = mouseX;
     e.preventDefault();
 
+
+
     // Check if we're on the last slide
     if (Math.abs(transX) >= curSlide.offsetWidth * 0.8) {
       document.removeEventListener('mousemove', slideMouseMove, false);
@@ -129,19 +140,30 @@ function onWndLoad() {
       curSlide.style.transition = 'ease 0.2s';
       curSlide.style.opacity = 0;
 
+
+
       // Check if it's the last slide
       if (sliders.length > 1) {
         curSlide.remove();
-        sliders.pop(); 
-        attachEvents(sliders[sliders.length - 1]); 
+        sliders.pop();
+        attachEvents(sliders[sliders.length - 1]);
 
         // Play the audio for the new current slide
         playAudioForSlide(sliders.length - 1);
       } else {
+
         // Redirect to the ending page on the last slide
         setTimeout(() => {
           window.location.href = "ending.html";
         }, 1000);
+      }
+
+      // Add "Swipe card for next page" text under the last slide
+      if (sliders.length === 1) {
+        const swipeTextLast = document.createElement('div');
+        swipeTextLast.classList.add('swipe-text', 'swipe-last');
+        swipeTextLast.innerText = 'Swipe last card for next page';
+        sliders[0].appendChild(swipeTextLast);
       }
 
       slideMouseUp();
