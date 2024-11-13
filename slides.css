@@ -145,5 +145,32 @@ h1 {
 .fade-out {
   animation: fadeOut 3s forwards;
 }
+.swipe-text {
+  position: absolute;
+  top: -48px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2em;
+  color: #727171;
+  opacity: 0;
+  animation: fadeInOut 3s infinite;
+}
 
+/* Animation for fade-in and fade-out */
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
 
+/* Specific styling for first and last slide texts */
+.swipe-first {
+  animation-delay: 0s; /* Immediate for the first slide */
+}
+
+.swipe-last {
+  animation-delay: 1s; /* Delay to ensure it appears smoothly */
+}
