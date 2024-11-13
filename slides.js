@@ -10,7 +10,7 @@ function onWndLoad() {
   var curSlide = null;
   var Z_DIS = 50;
   var Y_DIS = 10;
-  var TRANS_DUR = 0.4;
+  var TRANS_DUR = 2.5;
 
   // Array of audio files
   var audioFiles = [
