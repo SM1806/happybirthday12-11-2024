@@ -150,7 +150,7 @@ h1 {
   top: -48px;
   width: 100%;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1em;
   color: #727171;
   opacity: 0;
   animation: fadeInOut 3s infinite;
