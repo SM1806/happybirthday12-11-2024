@@ -10,7 +10,7 @@ function onWndLoad() {
   var curSlide = null;
   var Z_DIS = 50;
   var Y_DIS = 10;
-  var TRANS_DUR = 2.5;
+  var TRANS_DUR = 7;
 
   // Array of audio files
   var audioFiles = [
@@ -122,7 +122,7 @@ function onWndLoad() {
     e.preventDefault();
 
     // Check if we're on the last slide
-    if (Math.abs(transX) >= curSlide.offsetWidth * 0.75) {
+    if (Math.abs(transX) >= curSlide.offsetWidth * 0.8) {
       document.removeEventListener('mousemove', slideMouseMove, false);
       document.removeEventListener('touchmove', slideMouseMove, false);
 
